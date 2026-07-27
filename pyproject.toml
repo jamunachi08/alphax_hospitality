@@ -2,7 +2,7 @@
 name = "alphax_hospitality"
 version = "1.0.0"
 description = "Hotel PMS for ERPNext v15 - front desk, folios, night audit, ZATCA"
-authors = [{ name = "Neotec Integrated Solution", email = "support@neotec.ai" }]
+authors = [{ name = "Neotec Integrated Solution", email = "erpsupport@neotec.ai" }]
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["dependencies"]
@@ -13,3 +13,10 @@ build-backend = "flit_core.buildapi"
 
 [tool.flit.module]
 name = "alphax_hospitality"
+
+# Frappe Cloud reads this to decide whether the app can join a bench.
+# Without it the Add App dialog refuses with "Could not find compatible
+# Frappe version in pyproject.toml".
+[tool.bench.frappe-dependencies]
+frappe = ">=15.0.0,<17.0.0"
+erpnext = ">=15.0.0,<17.0.0"
