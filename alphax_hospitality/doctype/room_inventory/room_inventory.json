@@ -1,0 +1,146 @@
+{
+ "doctype": "DocType",
+ "name": "Room Inventory",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "property",
+   "label": "Property",
+   "fieldtype": "Link",
+   "options": "Hotel Property",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "room_type",
+   "label": "Room Type",
+   "fieldtype": "Link",
+   "options": "Room Type",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "stay_date",
+   "label": "Date",
+   "fieldtype": "Date",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_rooms",
+   "label": "Total",
+   "fieldtype": "Int",
+   "default": "0",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sold",
+   "label": "Sold",
+   "fieldtype": "Int",
+   "default": "0",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "blocked",
+   "label": "Blocked",
+   "fieldtype": "Int",
+   "default": "0",
+   "description": "Allotments held for corporate contracts or OTA."
+  },
+  {
+   "fieldname": "out_of_order",
+   "label": "Out of Order",
+   "fieldtype": "Int",
+   "default": "0"
+  },
+  {
+   "fieldname": "overbook_limit",
+   "label": "Overbook Limit",
+   "fieldtype": "Int",
+   "default": "0"
+  },
+  {
+   "fieldname": "available",
+   "label": "Available",
+   "fieldtype": "Int",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sb_rate",
+   "label": "Rate Overrides",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "stop_sell",
+   "label": "Stop Sell",
+   "fieldtype": "Check",
+   "default": "0"
+  },
+  {
+   "fieldname": "closed_to_arrival",
+   "label": "Closed to Arrival",
+   "fieldtype": "Check",
+   "default": "0"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "closed_to_departure",
+   "label": "Closed to Departure",
+   "fieldtype": "Check",
+   "default": "0"
+  },
+  {
+   "fieldname": "min_stay_override",
+   "label": "Min Stay",
+   "fieldtype": "Int",
+   "default": "0"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "autoname": "hash",
+ "description": "One row per property + room type + night. This is the single source of truth for availability. Booking decrements 'sold'; nothing scans reservations. Also the exact shape a channel manager expects for ARI push.",
+ "search_fields": "property,room_type,stay_date"
+}

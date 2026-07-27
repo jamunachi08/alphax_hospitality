@@ -1,0 +1,244 @@
+{
+ "doctype": "DocType",
+ "name": "Reservation",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "property",
+   "label": "Property",
+   "fieldtype": "Link",
+   "options": "Hotel Property",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "guest",
+   "label": "Guest",
+   "fieldtype": "Link",
+   "options": "Guest Profile",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "customer",
+   "label": "Bill To",
+   "fieldtype": "Link",
+   "options": "Customer",
+   "description": "Defaults from the guest. Set to a company for corporate billing."
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "label": "Status",
+   "fieldtype": "Select",
+   "options": "Draft\nTentative\nConfirmed\nChecked In\nChecked Out\nCancelled\nNo Show",
+   "default": "Draft",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "source",
+   "label": "Source",
+   "fieldtype": "Select",
+   "options": "Direct\nWalk In\nPhone\nWebsite\nOTA\nCorporate\nTravel Agent\nGroup",
+   "default": "Direct"
+  },
+  {
+   "fieldname": "corporate_contract",
+   "label": "Corporate Contract",
+   "fieldtype": "Link",
+   "options": "Corporate Contract"
+  },
+  {
+   "fieldname": "sb_stay",
+   "label": "Stay",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "arrival_date",
+   "label": "Arrival",
+   "fieldtype": "Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "departure_date",
+   "label": "Departure",
+   "fieldtype": "Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "nights",
+   "label": "Nights",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "adults",
+   "label": "Adults",
+   "fieldtype": "Int",
+   "default": "1"
+  },
+  {
+   "fieldname": "children",
+   "label": "Children",
+   "fieldtype": "Int",
+   "default": "0"
+  },
+  {
+   "fieldname": "rate_plan",
+   "label": "Rate Plan",
+   "fieldtype": "Link",
+   "options": "Rate Plan"
+  },
+  {
+   "fieldname": "sb_rooms",
+   "label": "Rooms",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "rooms",
+   "label": "Rooms",
+   "fieldtype": "Table",
+   "options": "Reservation Room",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sb_totals",
+   "label": "Totals",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_room_revenue",
+   "label": "Room Revenue",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_taxes",
+   "label": "Taxes",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "grand_total",
+   "label": "Grand Total",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "deposit_paid",
+   "label": "Deposit Paid",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_folio",
+   "label": "Folio",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "folio",
+   "label": "Guest Folio",
+   "fieldtype": "Link",
+   "options": "Guest Folio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "actual_check_in",
+   "label": "Actual Check-In",
+   "fieldtype": "Datetime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actual_check_out",
+   "label": "Actual Check-Out",
+   "fieldtype": "Datetime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_invoice",
+   "label": "Sales Invoice",
+   "fieldtype": "Link",
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_notes",
+   "label": "Notes",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "special_requests",
+   "label": "Special Requests",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "internal_notes",
+   "label": "Internal Notes",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "amended_from",
+   "label": "Amended From",
+   "fieldtype": "Link",
+   "options": "Reservation",
+   "read_only": 1,
+   "no_copy": 1,
+   "print_hide": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "autoname": "format:RSV-{YY}{MM}-{#####}",
+ "is_submittable": 1,
+ "title_field": "guest",
+ "search_fields": "guest,arrival_date,status"
+}

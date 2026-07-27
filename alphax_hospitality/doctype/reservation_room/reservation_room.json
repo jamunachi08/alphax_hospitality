@@ -1,0 +1,92 @@
+{
+ "doctype": "DocType",
+ "name": "Reservation Room",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 1,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "room_type",
+   "label": "Room Type",
+   "fieldtype": "Link",
+   "options": "Room Type",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "room",
+   "label": "Room",
+   "fieldtype": "Link",
+   "options": "Room",
+   "in_list_view": 1,
+   "description": "Assigned at or before check-in. Availability never depends on this."
+  },
+  {
+   "fieldname": "rate_plan",
+   "label": "Rate Plan",
+   "fieldtype": "Link",
+   "options": "Rate Plan"
+  },
+  {
+   "fieldname": "arrival_date",
+   "label": "Arrival",
+   "fieldtype": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "departure_date",
+   "label": "Departure",
+   "fieldtype": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "nights",
+   "label": "Nights",
+   "fieldtype": "Int",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "adults",
+   "label": "Adults",
+   "fieldtype": "Int",
+   "default": "1"
+  },
+  {
+   "fieldname": "children",
+   "label": "Children",
+   "fieldtype": "Int",
+   "default": "0"
+  },
+  {
+   "fieldname": "nightly_rate",
+   "label": "Nightly Rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "total_rate",
+   "label": "Total",
+   "fieldtype": "Currency",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "rate_override_reason",
+   "label": "Override Reason",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "guest_name",
+   "label": "Guest in Room",
+   "fieldtype": "Data"
+  }
+ ],
+ "permissions": [],
+ "editable_grid": 1
+}

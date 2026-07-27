@@ -1,0 +1,141 @@
+{
+ "doctype": "DocType",
+ "name": "Room",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "property",
+   "label": "Property",
+   "fieldtype": "Link",
+   "options": "Hotel Property",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "room_number",
+   "label": "Room Number",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "room_type",
+   "label": "Room Type",
+   "fieldtype": "Link",
+   "options": "Room Type",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "floor",
+   "label": "Floor",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "wing",
+   "label": "Wing / Block",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "status",
+   "label": "Status",
+   "fieldtype": "Select",
+   "options": "Vacant Clean\nVacant Dirty\nOccupied Clean\nOccupied Dirty\nOut of Order\nOut of Service",
+   "default": "Vacant Clean",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "sb_hk",
+   "label": "Housekeeping",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "last_cleaned",
+   "label": "Last Cleaned",
+   "fieldtype": "Datetime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_cleaned_by",
+   "label": "Cleaned By",
+   "fieldtype": "Link",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ooo_from",
+   "label": "Out of Order From",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "ooo_to",
+   "label": "Out of Order To",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "ooo_reason",
+   "label": "Reason",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "sb_feat",
+   "label": "Features",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "features",
+   "label": "Features",
+   "fieldtype": "Small Text",
+   "description": "Comma-separated: sea view, connecting, accessible, smoking."
+  },
+  {
+   "fieldname": "is_active",
+   "label": "Active",
+   "fieldtype": "Check",
+   "default": "1"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "description": "A physical room. Assigned to a reservation at or before check-in; availability does not depend on it."
+}

@@ -1,0 +1,142 @@
+{
+ "doctype": "DocType",
+ "name": "Rate Plan",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "property",
+   "label": "Property",
+   "fieldtype": "Link",
+   "options": "Hotel Property",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "rate_plan_name",
+   "label": "Rate Plan",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "code",
+   "label": "Code",
+   "fieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "is_active",
+   "label": "Active",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "currency",
+   "label": "Currency",
+   "fieldtype": "Link",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "price_list",
+   "label": "Price List",
+   "fieldtype": "Link",
+   "options": "Price List",
+   "description": "Optional. When set, room rates fall back to Item Price on this list where no Rate Plan Rate row matches."
+  },
+  {
+   "fieldname": "sb_policy",
+   "label": "Policy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "meal_plan",
+   "label": "Meal Plan",
+   "fieldtype": "Select",
+   "options": "Room Only\nBed & Breakfast\nHalf Board\nFull Board\nAll Inclusive",
+   "default": "Room Only"
+  },
+  {
+   "fieldname": "min_stay",
+   "label": "Minimum Stay (nights)",
+   "fieldtype": "Int",
+   "default": "1"
+  },
+  {
+   "fieldname": "max_stay",
+   "label": "Maximum Stay (nights)",
+   "fieldtype": "Int",
+   "default": "0"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cancellation_policy",
+   "label": "Cancellation Policy",
+   "fieldtype": "Link",
+   "options": "Cancellation Policy"
+  },
+  {
+   "fieldname": "is_refundable",
+   "label": "Refundable",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "advance_percent",
+   "label": "Advance Required %",
+   "fieldtype": "Percent",
+   "default": "0"
+  },
+  {
+   "fieldname": "sb_rates",
+   "label": "Rates",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "rates",
+   "label": "Rates",
+   "fieldtype": "Table",
+   "options": "Rate Plan Rate"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "description": "A commercial package: what the room costs, what is included, and what happens on cancellation."
+}

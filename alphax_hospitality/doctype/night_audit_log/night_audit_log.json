@@ -1,0 +1,152 @@
+{
+ "doctype": "DocType",
+ "name": "Night Audit Log",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "property",
+   "label": "Property",
+   "fieldtype": "Link",
+   "options": "Hotel Property",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "business_date",
+   "label": "Business Date",
+   "fieldtype": "Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "new_business_date",
+   "label": "New Business Date",
+   "fieldtype": "Date",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "label": "Status",
+   "fieldtype": "Select",
+   "options": "Running\nCompleted\nFailed\nRolled Back",
+   "default": "Running",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "started_at",
+   "label": "Started",
+   "fieldtype": "Datetime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "finished_at",
+   "label": "Finished",
+   "fieldtype": "Datetime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_counts",
+   "label": "Results",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "rooms_charged",
+   "label": "Rooms Charged",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "room_revenue",
+   "label": "Room Revenue",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tax_posted",
+   "label": "Tax Posted",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_shows",
+   "label": "No-Shows Processed",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "due_out_not_departed",
+   "label": "Overstays Flagged",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoices_created",
+   "label": "Invoices Created",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_log",
+   "label": "Log",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "log",
+   "label": "Log",
+   "fieldtype": "Code",
+   "options": "Text",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error",
+   "label": "Error",
+   "fieldtype": "Code",
+   "options": "Text",
+   "read_only": 1,
+   "depends_on": "eval:doc.status=='Failed'"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "autoname": "format:NA-{YY}{MM}{DD}-{###}"
+}

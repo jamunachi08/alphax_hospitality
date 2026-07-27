@@ -1,0 +1,15 @@
+[project]
+name = "alphax_hospitality"
+version = "1.0.0"
+description = "Hotel PMS for ERPNext v15 - front desk, folios, night audit, ZATCA"
+authors = [{ name = "Neotec Integrated Solution", email = "support@neotec.ai" }]
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["dependencies"]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "alphax_hospitality"

@@ -1,0 +1,223 @@
+{
+ "doctype": "DocType",
+ "name": "Guest Profile",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "guest_name",
+   "label": "Guest Name",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "guest_name_ar",
+   "label": "Name (Arabic)",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "customer",
+   "label": "Customer",
+   "fieldtype": "Link",
+   "options": "Customer",
+   "description": "The billing party. Deliberately separate from the guest \u2014 a guest and a payer are frequently different entities."
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "nationality",
+   "label": "Nationality",
+   "fieldtype": "Link",
+   "options": "Country"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "label": "Date of Birth",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "gender",
+   "label": "Gender",
+   "fieldtype": "Select",
+   "options": "\nMale\nFemale"
+  },
+  {
+   "fieldname": "sb_id",
+   "label": "Identification",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "id_type",
+   "label": "ID Type",
+   "fieldtype": "Select",
+   "options": "National ID\nIqama\nGCC ID\nPassport\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "id_number",
+   "label": "ID Number",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "id_expiry",
+   "label": "ID Expiry",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "id_issuing_country",
+   "label": "Issuing Country",
+   "fieldtype": "Link",
+   "options": "Country"
+  },
+  {
+   "fieldname": "visa_number",
+   "label": "Visa Number",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "id_document",
+   "label": "Scanned Document",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "sb_contact",
+   "label": "Contact",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "mobile",
+   "label": "Mobile",
+   "fieldtype": "Data",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "email",
+   "label": "Email",
+   "fieldtype": "Data",
+   "options": "Email"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address",
+   "label": "Address",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "preferred_language",
+   "label": "Language",
+   "fieldtype": "Select",
+   "options": "English\nArabic",
+   "default": "English"
+  },
+  {
+   "fieldname": "sb_prefs",
+   "label": "Stay Preferences",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "preferences",
+   "label": "Preferences",
+   "fieldtype": "Small Text",
+   "description": "High floor, away from lift, feather-free."
+  },
+  {
+   "fieldname": "vip_status",
+   "label": "VIP",
+   "fieldtype": "Select",
+   "options": "\nVIP\nVVIP\nBlacklist"
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_stays",
+   "label": "Total Stays",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_revenue",
+   "label": "Lifetime Revenue",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_pdpl",
+   "label": "Data Protection",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "consent_marketing",
+   "label": "Marketing Consent",
+   "fieldtype": "Check",
+   "default": "0"
+  },
+  {
+   "fieldname": "retention_until",
+   "label": "Retain Until",
+   "fieldtype": "Date",
+   "read_only": 1,
+   "description": "Set by the PDPL retention job from last departure. Personal data is purged after this date."
+  },
+  {
+   "fieldname": "shomoos_registered",
+   "label": "Registered with Shomoos",
+   "fieldtype": "Check",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shomoos_reference",
+   "label": "Shomoos Reference",
+   "fieldtype": "Data",
+   "read_only": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "autoname": "format:GST-{#####}",
+ "title_field": "guest_name",
+ "search_fields": "guest_name,id_number,mobile"
+}

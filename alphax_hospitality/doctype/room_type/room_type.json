@@ -1,0 +1,122 @@
+{
+ "doctype": "DocType",
+ "name": "Room Type",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "property",
+   "label": "Property",
+   "fieldtype": "Link",
+   "options": "Hotel Property",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "room_type_name",
+   "label": "Room Type",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "short_code",
+   "label": "Code",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "description": "DLX, STD, SUI \u2014 used on the tape chart."
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_code",
+   "label": "Revenue Item",
+   "fieldtype": "Link",
+   "options": "Item",
+   "reqd": 1,
+   "description": "Non-stock Item. Room revenue posts through this so it lands in the right income account with the right tax template."
+  },
+  {
+   "fieldname": "base_occupancy",
+   "label": "Base Occupancy",
+   "fieldtype": "Int",
+   "default": "2"
+  },
+  {
+   "fieldname": "max_occupancy",
+   "label": "Max Occupancy",
+   "fieldtype": "Int",
+   "default": "3"
+  },
+  {
+   "fieldname": "sb_desc",
+   "label": "Description",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "label": "Description",
+   "fieldtype": "Text Editor"
+  },
+  {
+   "fieldname": "description_ar",
+   "label": "Description (Arabic)",
+   "fieldtype": "Text Editor"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "size_sqm",
+   "label": "Size (sqm)",
+   "fieldtype": "Float"
+  },
+  {
+   "fieldname": "bed_configuration",
+   "label": "Bed Configuration",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "sort_order",
+   "label": "Sort Order",
+   "fieldtype": "Int",
+   "default": "0"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "description": "A sellable category of room. Availability is tracked per room type per date, not per physical room \u2014 that is what makes overbooking policy and channel distribution possible."
+}

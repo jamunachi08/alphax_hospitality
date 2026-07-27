@@ -1,0 +1,142 @@
+{
+ "doctype": "DocType",
+ "name": "Corporate Contract",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "property",
+   "label": "Property",
+   "fieldtype": "Link",
+   "options": "Hotel Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "label": "Company",
+   "fieldtype": "Link",
+   "options": "Customer",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "contract_name",
+   "label": "Contract Name",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valid_from",
+   "label": "From",
+   "fieldtype": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "valid_to",
+   "label": "To",
+   "fieldtype": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "is_active",
+   "label": "Active",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "sb_terms",
+   "label": "Terms",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "rate_plan",
+   "label": "Contracted Rate Plan",
+   "fieldtype": "Link",
+   "options": "Rate Plan"
+  },
+  {
+   "fieldname": "discount_percent",
+   "label": "Discount %",
+   "fieldtype": "Percent",
+   "default": "0"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "credit_limit",
+   "label": "Credit Limit",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "payment_terms",
+   "label": "Payment Terms",
+   "fieldtype": "Link",
+   "options": "Payment Terms Template"
+  },
+  {
+   "fieldname": "city_ledger",
+   "label": "Post to City Ledger",
+   "fieldtype": "Check",
+   "default": "1",
+   "description": "On checkout, the corporate portion transfers to the company master folio instead of demanding payment at the desk."
+  },
+  {
+   "fieldname": "sb_allot",
+   "label": "Allotment",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "allotment_rooms",
+   "label": "Rooms Held per Night",
+   "fieldtype": "Int",
+   "default": "0"
+  },
+  {
+   "fieldname": "release_days",
+   "label": "Release Days Before Arrival",
+   "fieldtype": "Int",
+   "default": "7"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "autoname": "format:CON-{YY}-{####}",
+ "title_field": "contract_name"
+}

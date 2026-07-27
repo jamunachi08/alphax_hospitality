@@ -1,0 +1,213 @@
+{
+ "doctype": "DocType",
+ "name": "Hotel Property",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 1,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "property_name",
+   "label": "Property Name",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "label": "Company",
+   "fieldtype": "Link",
+   "options": "Company",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "branch",
+   "label": "Branch",
+   "fieldtype": "Link",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_center",
+   "label": "Cost Center",
+   "fieldtype": "Link",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "abbr",
+   "label": "Abbreviation",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "description": "Prefixes room and folio numbering."
+  },
+  {
+   "fieldname": "is_active",
+   "label": "Active",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "sb_ops",
+   "label": "Operations",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "check_in_time",
+   "label": "Check-In Time",
+   "fieldtype": "Time",
+   "default": "14:00:00"
+  },
+  {
+   "fieldname": "check_out_time",
+   "label": "Check-Out Time",
+   "fieldtype": "Time",
+   "default": "12:00:00"
+  },
+  {
+   "fieldname": "business_date",
+   "label": "Business Date",
+   "fieldtype": "Date",
+   "read_only": 1,
+   "description": "Advanced only by Night Audit. Every charge, rate lookup and availability decision keys off this, never off the server clock."
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "night_audit_time",
+   "label": "Night Audit Time",
+   "fieldtype": "Time",
+   "default": "03:00:00"
+  },
+  {
+   "fieldname": "last_night_audit",
+   "label": "Last Night Audit",
+   "fieldtype": "Datetime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grace_minutes_late_checkout",
+   "label": "Late Checkout Grace (min)",
+   "fieldtype": "Int",
+   "default": "60"
+  },
+  {
+   "fieldname": "sb_fin",
+   "label": "Financial",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "default_price_list",
+   "label": "Default Price List",
+   "fieldtype": "Link",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "room_revenue_item_group",
+   "label": "Room Revenue Item Group",
+   "fieldtype": "Link",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "tax_template",
+   "label": "Sales Taxes Template",
+   "fieldtype": "Link",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "municipality_fee_rate",
+   "label": "Municipality / Tourism Levy %",
+   "fieldtype": "Percent",
+   "default": "0",
+   "description": "Charged as a separate tax head on room revenue, not folded into VAT."
+  },
+  {
+   "fieldname": "levy_account",
+   "label": "Levy Account",
+   "fieldtype": "Link",
+   "options": "Account"
+  },
+  {
+   "fieldname": "deposit_account",
+   "label": "Advance / Deposit Account",
+   "fieldtype": "Link",
+   "options": "Account"
+  },
+  {
+   "fieldname": "sb_ksa",
+   "label": "KSA Compliance",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "shomoos_enabled",
+   "label": "Register Guests with Shomoos",
+   "fieldtype": "Check",
+   "default": "0",
+   "description": "Saudi properties must report guest arrivals to the Ministry of Interior platform."
+  },
+  {
+   "fieldname": "shomoos_property_id",
+   "label": "Shomoos Property ID",
+   "fieldtype": "Data",
+   "depends_on": "shomoos_enabled"
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "zatca_enabled",
+   "label": "ZATCA E-Invoicing",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "zatca_async",
+   "label": "Clear Invoices Asynchronously",
+   "fieldtype": "Check",
+   "default": "1",
+   "description": "Queue clearance instead of blocking checkout. The guest leaves; the cleared invoice is emailed."
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "autoname": "field:property_name",
+ "description": "One hotel. Multi-property chains create one record per site; inventory, rates and folios are always property-scoped."
+}

@@ -1,0 +1,186 @@
+{
+ "doctype": "DocType",
+ "name": "Guest Folio",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "property",
+   "label": "Property",
+   "fieldtype": "Link",
+   "options": "Hotel Property",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "reservation",
+   "label": "Reservation",
+   "fieldtype": "Link",
+   "options": "Reservation",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "guest",
+   "label": "Guest",
+   "fieldtype": "Link",
+   "options": "Guest Profile",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "folio_type",
+   "label": "Type",
+   "fieldtype": "Select",
+   "options": "Guest\nMaster\nCity Ledger\nHouse",
+   "default": "Guest",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "customer",
+   "label": "Bill To",
+   "fieldtype": "Link",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "status",
+   "label": "Status",
+   "fieldtype": "Select",
+   "options": "Open\nClosed\nTransferred\nVoid",
+   "default": "Open",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "room",
+   "label": "Room",
+   "fieldtype": "Data",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sb_txn",
+   "label": "Transactions",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "transactions",
+   "label": "Transactions",
+   "fieldtype": "Table",
+   "options": "Folio Transaction"
+  },
+  {
+   "fieldname": "sb_bal",
+   "label": "Balance",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_charges",
+   "label": "Charges",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_taxes",
+   "label": "Taxes",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_credits",
+   "label": "Payments & Credits",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "balance",
+   "label": "Balance",
+   "fieldtype": "Currency",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sb_route",
+   "label": "Routing",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "route_to_folio",
+   "label": "Route Charges To",
+   "fieldtype": "Link",
+   "options": "Guest Folio",
+   "description": "Split billing: room and tax stay here, everything else routes to the company master folio."
+  },
+  {
+   "fieldname": "routing_rule",
+   "label": "Routing Rule",
+   "fieldtype": "Select",
+   "options": "\nAll to Master\nRoom & Tax to Master\nRoom Only to Master\nCustom",
+   "description": "Corporate stays where the company pays room and the guest pays extras."
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_invoice",
+   "label": "Sales Invoice",
+   "fieldtype": "Link",
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closed_on",
+   "label": "Closed On",
+   "fieldtype": "Datetime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closed_by",
+   "label": "Closed By",
+   "fieldtype": "Link",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "autoname": "format:FOL-{YY}{MM}-{#####}",
+ "title_field": "guest"
+}

@@ -1,0 +1,83 @@
+{
+ "doctype": "DocType",
+ "name": "Cancellation Policy",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 0,
+ "engine": "InnoDB",
+ "allow_rename": 1,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "policy_name",
+   "label": "Policy Name",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "free_cancel_hours",
+   "label": "Free Cancellation Until (hours before arrival)",
+   "fieldtype": "Int",
+   "default": "24"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "penalty_type",
+   "label": "Penalty",
+   "fieldtype": "Select",
+   "options": "First Night\nPercent of Stay\nFixed Amount\nFull Stay",
+   "default": "First Night"
+  },
+  {
+   "fieldname": "penalty_value",
+   "label": "Penalty Value",
+   "fieldtype": "Float",
+   "depends_on": "eval:['Percent of Stay','Fixed Amount'].includes(doc.penalty_type)"
+  },
+  {
+   "fieldname": "no_show_charge",
+   "label": "No-Show Charge",
+   "fieldtype": "Select",
+   "options": "First Night\nPercent of Stay\nFixed Amount\nFull Stay\nNone",
+   "default": "First Night"
+  },
+  {
+   "fieldname": "no_show_value",
+   "label": "No-Show Value",
+   "fieldtype": "Float"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Hotel Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Front Desk Agent",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "autoname": "field:policy_name"
+}

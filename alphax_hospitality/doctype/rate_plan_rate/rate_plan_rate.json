@@ -1,0 +1,72 @@
+{
+ "doctype": "DocType",
+ "name": "Rate Plan Rate",
+ "module": "AlphaX Hospitality",
+ "custom": 0,
+ "istable": 1,
+ "engine": "InnoDB",
+ "allow_rename": 0,
+ "track_changes": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "fields": [
+  {
+   "fieldname": "room_type",
+   "label": "Room Type",
+   "fieldtype": "Link",
+   "options": "Room Type",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "valid_from",
+   "label": "From",
+   "fieldtype": "Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "valid_to",
+   "label": "To",
+   "fieldtype": "Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "rate",
+   "label": "Rate",
+   "fieldtype": "Currency",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "extra_adult_rate",
+   "label": "Extra Adult",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "extra_child_rate",
+   "label": "Extra Child",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "days_of_week",
+   "label": "Days",
+   "fieldtype": "Data",
+   "description": "Blank = all. Otherwise MON,TUE,FRI for day-specific pricing."
+  },
+  {
+   "fieldname": "min_stay",
+   "label": "Min Stay",
+   "fieldtype": "Int"
+  },
+  {
+   "fieldname": "closed",
+   "label": "Closed to Arrival",
+   "fieldtype": "Check",
+   "default": "0"
+  }
+ ],
+ "permissions": [],
+ "editable_grid": 1
+}
