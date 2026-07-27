@@ -5,7 +5,6 @@ description = "Hotel PMS for ERPNext v15 - front desk, folios, night audit, ZATC
 authors = [{ name = "Neotec Integrated Solution", email = "erpsupport@neotec.ai" }]
 requires-python = ">=3.10"
 readme = "README.md"
-dynamic = ["dependencies"]
 
 [build-system]
 requires = ["flit_core >=3.4,<4"]
